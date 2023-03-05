@@ -5,6 +5,7 @@ import streamlit as st
 from srcs.main_page import showMainPage
 from srcs.tec_doc import main_docs
 from srcs.vis_tutorial import visPage
+import srcs.multipage as mt
 
 # 设置网页标题，以及使用宽屏模式
 st.set_page_config(
@@ -12,7 +13,7 @@ st.set_page_config(
     layout="wide",
     page_icon=":seedling:",  # icon
     initial_sidebar_state="auto"  # 侧边栏
-    )
+)
 
 # 隐藏右边的菜单以及页脚
 hide_streamlit_style = """
