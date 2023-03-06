@@ -237,3 +237,5 @@ def pyecharts_tutorial(st, **state):
     tab = show_tab()
     tab2html = tab.render_embed()  # 将折线组件转换成html文本
     components.html(tab2html, height=600, width=900)  # 在主页面用streamlit静态组件的方式渲染pyecharts
+
+    st.markdown("敬请期待。。")
