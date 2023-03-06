@@ -2,14 +2,16 @@
 streamlit run D:/Code/PythonCode/streamlit_tutorial/demo.py
 """
 import streamlit as st
-from srcs.main_page import showMainPage
-from srcs.tec_doc import main_docs
-from srcs.vis_tutorial import visPage
-import srcs.multipage as mt
-from srcs.multipage import MultiPage
 from streamlit_ace import st_ace
 import streamlit_echarts as st_echarts
 
+
+import srcs.multipage as mt
+from srcs.multipage import MultiPage
+
+from srcs.main_page import showMainPage
+from srcs.tec_doc import main_docs
+from srcs.vis_tutorial import visPage
 
 def landing_page(st):
     st.title("This is a Multi Page Application")
@@ -65,6 +67,7 @@ app.hide_menu = True
 app.hide_navigation = True
 
 app.add_app("Landing", landing_page, initial_page=True)
+app.add_app("个人主页", input_page)
 app.add_app("技术文档", main_docs)
 app.add_app("可视化平台", visPage)
 
