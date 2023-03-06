@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import streamlit_echarts as st_echarts
 import graphviz
+from docs.my_pyecharts_tutorial import pyecharts_tutorial
 
 
 def showGraph():
@@ -25,7 +26,13 @@ def showGraph():
     return graph
 
 
-def visPage(st):
-    st.title("权限管理")
-    graph = showGraph()
-    st.write(graph)
+def my_vis_page(st, **state):
+    valueList = ['pyecharts教程', 'graphviz教程', 'matplotlib教程' ]
+    result = st.sidebar.selectbox("可视化汇总", valueList)
+    if result == 'graphviz教程':
+        graph = showGraph()
+        st.write(graph)
+    elif result == 'pyecharts教程':
+        pyecharts_tutorial(st)
+    else:
+        pass
