@@ -219,7 +219,6 @@ fig = ax.get_figure()
 
 
 def pandas_tutorial(st, **state):
-
     result = st.sidebar.selectbox("教程目录", ['pd.plot应用', 'mangodb技术文档'])
     if result == 'pd.plot应用':
         st.markdown("## pandas之plot使用")
