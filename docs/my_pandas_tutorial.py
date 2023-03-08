@@ -3,10 +3,23 @@ from streamlit_ace import st_ace
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib as mpl
+from matplotlib import font_manager
 import seaborn as sns
 
-plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
-plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+fontPath = 'ttf/SimHei.ttf'
+font_manager.fontManager.addfont(fontPath)
+prop= font_manager.FontProperties(fname=fontPath)
+mpl.rcParams['font.family']='sans-serif'
+mpl.rcParams['font.sans-serif']=prop.get_name()
+mpl.rcParams['font.size']=12
+mpl.rcParams['axes.unicode_minus']=False
+mpl.rcParams['xtick.direction']='in'
+mpl.rcParams['ytick.direction']='in'
+
+
+# plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+# plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 
 def pandas_plot(st, **state):

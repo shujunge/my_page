@@ -2,4 +2,5 @@ pandas_profiling
 streamlit_echarts
 graphviz
 streamlit_ace
+matplotlib==3.4.3
 
