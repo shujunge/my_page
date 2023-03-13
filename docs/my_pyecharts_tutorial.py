@@ -13,7 +13,8 @@ from pyecharts.faker import Faker
 
 from streamlit_echarts import st_pyecharts
 
-import streamlit.components.v1 as components        #将要展示的 弄成htm
+import streamlit.components.v1 as components        #将要展示的输出html
+
 
 def show_bar():
     import numpy as np
@@ -235,7 +236,10 @@ def pyecharts_tutorial(st, **state):
 
 
     tab = show_tab()
+    tab.render("all.html")
     tab2html = tab.render_embed()  # 将折线组件转换成html文本
     components.html(tab2html, height=600, width=900)  # 在主页面用streamlit静态组件的方式渲染pyecharts
+
+
 
     st.markdown("敬请期待。。")

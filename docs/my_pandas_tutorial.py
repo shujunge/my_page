@@ -7,6 +7,7 @@ import matplotlib as mpl
 from matplotlib import font_manager
 import seaborn as sns
 from scipy import stats
+import streamlit.components.v1 as components        #将要展示的 弄成html
 
 fontPath = 'ttf/SimHei.ttf'
 font_manager.fontManager.addfont(fontPath)
@@ -288,31 +289,36 @@ def color_negative_red(val):
     color = 'red' if val < 0 else 'black'
     return 'color: %s' % color
 s = df.style.applymap(color_negative_red)
+s.render()
 """)
-    st.dataframe(df.style.applymap(color_negative_red))
+    s = df.style.applymap(color_negative_red)
+    components.html(s.render())
 
     st.markdown("## 格式化输出style")
     st.code("""
 df.style.format("{:.2%}")
     """)
-    st.dataframe(df.style.format("{:.2%}"))
+    components.html(df.style.format("{:.2%}").render())
 
     st.markdown("## 格式化输出 bar style")
     st.code("""
 import seaborn as sns
-
-
 df.style.bar(subset=['A', 'B'], color='#d65f5f')
-df.style.bar(subset=['A', 'B'], align='mid', color=['#d65f5f', '#5fba7d'])
-
-cm = sns.light_palette("green", as_cmap=True)
-df.style.set_caption('Colormaps, with a caption.').background_gradient(cmap=cm)
+zz = df.style.bar(subset=['A', 'B'], align='mid', color=['#d65f5f', '#5fba7d'])
+zz.render()
 """)
+    zz=df.style.bar(subset=['A', 'B'], align='mid', color=['#d65f5f', '#5fba7d'])
+    components.html(zz.render())
 
+    st.markdown("## 梯度展示样式")
+    st.code("""
+    import seaborn as sns
+    cm = sns.light_palette("green", as_cmap=True)
+    df.style.set_caption('Colormaps, with a caption.').background_gradient(cmap=cm)
+    """)
     cm = sns.light_palette("green", as_cmap=True)
     results = df.style.set_caption('Colormaps, with a caption.').background_gradient(cmap=cm)
-    st.text(results)
-    st.write(results)
+    components.html(results.render())
 
 
 def pandas_buildin(st, **state):
