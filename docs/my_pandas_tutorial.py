@@ -1150,9 +1150,12 @@ df.ewm(com=0.5).mean()
 
 
 def pandas_tutorial(st, **state):
+
     result = st.sidebar.selectbox("教程目录", ['常用聚合函数介绍', '常用查询函数介绍', '窗口函数介绍', 'str处理介绍', 'pd.plot应用', 'style样式'])
+
     st.markdown("[pandas官方文档](https://pandas.pydata.org/pandas-docs/version/0.23/contributing_docstring.html)")
     st.code(r"pandas version: %s" % pd.__version__)
+
     if result == 'str处理介绍':
         st.markdown("# 文本处理")
         pandas_str(st)
