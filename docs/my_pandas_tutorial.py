@@ -7,7 +7,7 @@ import matplotlib as mpl
 from matplotlib import font_manager
 import seaborn as sns
 from scipy import stats
-import streamlit.components.v1 as components        #将要展示的 弄成html
+import streamlit.components.v1 as components  # 将要展示的 弄成html
 
 fontPath = 'ttf/SimHei.ttf'
 font_manager.fontManager.addfont(fontPath)
@@ -307,7 +307,7 @@ df.style.bar(subset=['A', 'B'], color='#d65f5f')
 zz = df.style.bar(subset=['A', 'B'], align='mid', color=['#d65f5f', '#5fba7d'])
 zz.render()
 """)
-    zz=df.style.bar(subset=['A', 'B'], align='mid', color=['#d65f5f', '#5fba7d'])
+    zz = df.style.bar(subset=['A', 'B'], align='mid', color=['#d65f5f', '#5fba7d'])
     components.html(zz.render())
 
     st.markdown("## 梯度展示样式")
@@ -337,8 +337,8 @@ zz = df.groupby(by='X').agg({'Y':['count','mean','std'],'Z':['sum']}).reset_inde
 
     st.markdown("## groupby nth代码")
     st.code("""
-    zz = df.sort_values(by="Z", ascending=False).groupby(by="X", as_index=False).nth(1)
-    # GroupBy.nth()，取每一组第n行的数据，n从0开始，0代表第一行。
+zz = df.sort_values(by="Z", ascending=False).groupby(by="X", as_index=False).nth(1)
+# GroupBy.nth()，取每一组第n行的数据，n从0开始，0代表第一行。
         """)
     zz = df.sort_values(by="Z", ascending=False).groupby(by="X", as_index=False).nth(1)
     st.dataframe(zz)
